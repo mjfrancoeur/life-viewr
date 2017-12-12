@@ -4,12 +4,12 @@ services:
     build: ./database
     ports:
       - "5432:5432"
-  db-services:
-    build: ./db-services
+  app:
+    build: ./app
     environment:
       - POSTGRES_USER=admin
     volumes:
-      - ./app/db-services:/opt/app/src
+      - ./app:/opt/app/src
     ports:
       - "8000:8000"
     depends_on:
